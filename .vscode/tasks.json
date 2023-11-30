@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "Live Preview",
+			"workspacePath": "/home/ben/programming/web/big projects/bathgate-academy-digital.github.io",
+			"problemMatcher": [],
+			"label": "Live Preview: Run Server"
+		}
+	]
+}

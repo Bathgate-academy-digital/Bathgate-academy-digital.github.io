@@ -1,0 +1,79 @@
+/* DESIGN FOR MOBILE, NOT DESKTOP */
+
+:root{
+	--main-bg-color: #ffffff;
+	--main-font-color: black;
+	--secondary-bg-color: rgba(77, 77, 77, 0.589);
+	--secondary-font-color: black;
+	--nav-bg-color: #8585856c;
+	--accent-color: rgb(125, 235, 74);
+}
+
+body {
+	/* Sets the base font size. You only need rem and em for any font-sizes now. */
+	font-size: calc(15px + 1vw);
+	margin: 0;
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	background-color: var(--nav-bg-color);
+}
+
+nav * {
+	color: var(--main-font-color);
+	text-decoration: none
+}
+
+nav a {
+	display: block;
+	padding: 0.5rem;
+}
+
+
+.title-section {
+	height: 50vh;
+	width: 100%;
+	padding-top: 25vh;
+}
+
+.title-text {
+	text-align: center;
+	color: var(--main-font-color);
+}
+
+.title-text h1 {
+	font-size: 4rem;
+	text-transform: capitalize;
+	margin-bottom: 2rem;
+	font-family: Vina Sans;
+	font-weight: normal;
+}
+
+.title-text p {
+	font-weight: bold;
+	font-size: 2rem;
+	font-family: Tillana;
+	margin: 0
+}
+
+.title-section > .home-button-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 5vh
+}
+
+.home-button {
+	padding: 1.5rem;
+	margin: 1rem;
+	background-color: var(--secondary-bg-color);
+	color: var(--secondary-font-color);
+	border-radius: 65px;
+	font-size: 1.5rem;
+}
+
+#play-button {
+	background-color: var(--accent-color);
+}
