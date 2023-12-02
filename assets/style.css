@@ -7,6 +7,7 @@
 	--secondary-font-color: black;
 	--nav-bg-color: #8585856c;
 	--accent-color: rgb(125, 235, 74);
+	--footer-bg-color: rgba(125, 235, 74, 0.596);
 }
 
 body {
@@ -31,11 +32,16 @@ nav a {
 	padding: 0.5rem;
 }
 
+main {
+	overflow: hidden;
+	height: 90vh
+}
 
 .title-section {
-	height: 50vh;
+	height: 100%;
 	width: 100%;
 	padding-top: 15vh;
+	box-sizing: border-box;
 }
 
 .title-text {
@@ -72,8 +78,20 @@ nav a {
 	color: var(--secondary-font-color);
 	border-radius: 65px;
 	font-size: 1.5rem;
+	text-decoration: none
 }
 
 #play-button {
 	background-color: var(--accent-color);
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 1rem;
+	background-color: var(--footer-bg-color);
+	text-align: center;
+	box-sizing: border-box;
 }
