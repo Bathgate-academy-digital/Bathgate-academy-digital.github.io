@@ -3,17 +3,22 @@
 :root{
 	--main-bg-color: #ffffff;
 	--main-font-color: black;
-	--secondary-bg-color: rgba(77, 77, 77, 0.589);
+	--secondary-bg-color: rgb(143, 143, 143);
 	--secondary-font-color: black;
 	--nav-bg-color: #8585856c;
 	--accent-color: rgb(125, 235, 74);
-	--footer-bg-color: rgba(125, 235, 74, 0.596);
+	--footer-bg-color: rgb(183, 250, 153);
 }
 
 body {
 	/* Sets the base font size. You only need rem and em for any font-sizes now. */
 	font-size: calc(15px + 1vw);
 	margin: 0;
+}
+
+section:nth-last-child(3){
+	/* So that the last section before the footer has some padding (3rd last because the script tag is there too) */
+	margin-bottom: 15vh;
 }
 
 nav {
@@ -30,11 +35,6 @@ nav * {
 nav a {
 	display: block;
 	padding: 0.5rem;
-}
-
-main {
-	overflow: hidden;
-	height: 90vh
 }
 
 .title-section {
@@ -86,9 +86,6 @@ main {
 }
 
 footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
 	width: 100%;
 	padding: 1rem;
 	background-color: var(--footer-bg-color);
