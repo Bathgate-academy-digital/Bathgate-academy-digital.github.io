@@ -16,6 +16,7 @@
 			leaderboardElement.style.visibility = 'visible';
 
 			const table = document.getElementById('leaderboardBody');
+			table.replaceChildren();
 			(await items).forEach(item => {
 				let row = table.insertRow();
 				let name = row.insertCell(0);
@@ -27,27 +28,57 @@
 				score.innerHTML = item.score;
 			});
 		}
+
+		async function submitUser() {
+			const url = document.getElementById('url').value;
+			const name = document.getElementById('name').value;
+			const schoolClass = document.getElementById('class').value;
+			const response = await createUser(name, schoolClass, url);
+			document.getElementById('idOutput').innerHTML = JSON.stringify(response);
+		}
 	</script>
+	<style>
+		.column {
+			display: block;
+			padding: 2%;
+			outline-style: solid;
+			outline-width: 1px;
+		}
+	</style>
 </head>
 
 <body>
 	<h1>Connect to backend</h1>
-	<form>
-		<label for="url">URL:</label><br>
-		<input type="text" id="url" name="url"><br>
-		<br>
-		<button type="button" onclick="showLeaderboard()">Submit</button>
-	</form>
-	<table id="leaderboard" style="visibility: hidden;">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Class</th>
-				<th>Score</th>
-			</tr>
-		</thead>
-		<tbody id="leaderboardBody"></tbody>
-	</table>
+	<label for="url">URL:</label><br>
+	<input type="text" id="url" name="url" style="width: 98%;""><br>
+	<div style=" display: flex;">
+	<div class="column">
+		<form>
+			<button type="button" onclick="showLeaderboard()">Get leaderboard</button>
+		</form>
+		<table id="leaderboard" style="visibility: hidden;">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Class</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody id="leaderboardBody"></tbody>
+		</table>
+	</div>
+	<div class="column">
+		<form>
+			<label for="name">Name:</label><br>
+			<input type="text" id="name" name="name"><br>
+			<label for="class">Class:</label><br>
+			<input type="text" id="class" name="class"><br>
+			<br>
+			<button type="button" onclick="submitUser()">Create user</button>
+		</form>
+		<p id="idOutput"></p>
+	</div>
+	</div>
 </body>
 
 </html>
