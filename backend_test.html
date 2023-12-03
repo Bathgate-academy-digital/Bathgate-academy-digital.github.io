@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Backend test</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="assets/backend_funcs.js" defer></script>
+	<script defer>
+		async function showLeaderboard() {
+			const url = document.getElementById('url').value;
+			const items = getLeaderboard(url);
+
+			const leaderboardElement = document.getElementById("leaderboard");
+			leaderboardElement.style.visibility = 'visible';
+
+			const table = document.getElementById('leaderboardBody');
+			(await items).forEach(item => {
+				let row = table.insertRow();
+				let name = row.insertCell(0);
+				name.innerHTML = item.name;
+				// Variable name cannot be `class` because it is a keyword
+				let schoolClass = row.insertCell(1);
+				schoolClass.innerHTML = item.class;
+				let score = row.insertCell(2);
+				score.innerHTML = item.score;
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Connect to backend</h1>
+	<form>
+		<label for="url">URL:</label><br>
+		<input type="text" id="url" name="url"><br>
+		<br>
+		<button type="button" onclick="showLeaderboard()">Submit</button>
+	</form>
+	<table id="leaderboard" style="visibility: hidden;">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Class</th>
+				<th>Score</th>
+			</tr>
+		</thead>
+		<tbody id="leaderboardBody"></tbody>
+	</table>
+</body>
+
+</html>
