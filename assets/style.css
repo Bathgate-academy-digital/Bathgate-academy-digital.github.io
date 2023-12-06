@@ -7,7 +7,7 @@
 	--secondary-font-color: rgb(0, 0, 0);
 	--nav-bg-color: #8585856c;
 	--accent-color: rgb(125, 235, 74);
-	--footer-bg-color: rgb(183, 250, 153);
+	--footer-bg-color: rgb(136, 182, 115);
 }
 
 #home-screen{
@@ -78,6 +78,8 @@ nav a {
 }
 
 .home-button {
+	font-family: Tillana;
+	font-weight: 800;
 	padding: 1.5rem;
 	margin: 1rem;
 	background-color: var(--secondary-bg-color);
@@ -92,6 +94,8 @@ nav a {
 }
 
 footer {
+	font-family: Tillana;
+	font-weight: 800;
 	width: 100%;
 	padding: 1rem;
 	background-color: var(--footer-bg-color);
