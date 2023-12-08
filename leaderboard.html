@@ -1,23 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Leaderboard</title>
-	<link id = "default" href="assets/style.css" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=font1|font2">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="assets/backend_funcs.js" defer></script>
+	<script defer>
+		async function getLeaderboard(url) {
+			const response = await fetch(`${url}/api/leaderboard`);
+			return response.json();
+		}	
+
+		async function showLeaderboard() {
+			const items = getLeaderboard("https://jungle-rush-kk7piym5qq-nw.a.run.app/api/leaderboard");
+
+			const leaderboardElement = document.getElementById("leaderboard");
+			leaderboardElement.style.visibility = 'visible';
+
+			const table = document.getElementById('leaderboardBody');
+			table.replaceChildren();
+			(await items).forEach(item => {
+				let row = table.insertRow();
+				let name = row.insertCell(0);
+				name.innerHTML = item.name;
+				let schoolClass = row.insertCell(1);
+				schoolClass.innerHTML = item.class;
+				let score = row.insertCell(2);
+				score.innerHTML = item.score;
+			});
+		}
+
+		async function submitUser() {
+			const name = document.getElementById('name').value;
+			const schoolClass = document.getElementById('class').value;
+			const response = await createUser(name, schoolClass, "https://jungle-rush-kk7piym5qq-nw.a.run.app/api/leaderboard");
+			document.getElementById('idOutput').innerHTML = JSON.stringify(response);
+		}
+
+		// Call showLeaderboard function when the page is loaded
+		window.onload = showLeaderboard;
+	</script>
+	<style>
+		
+		body h1 {
+			text-align: center;
+			font-family: 'Tillana', sans-serif;
+			font-size: 50px;
+			color: white;
+			text-shadow: 2px 2px 4px #000000;
+		}
+
+		.column {
+			display: block;
+			padding: 2%;
+			outline-style: solid;
+			outline-width: 1px;
+			z-index: 1;
+			margin: 0 auto;
+		}
+
+		#leaderboard {
+			margin: 0 auto;
+		}
+
+		body {
+			background-image: linear-gradient(to bottom, rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url('../Media/indexbackground.jpg');
+			object-fit: cover;
+			background-size: cover;
+			margin: 0;
+		}
+	</style>
 </head>
 
 <body>
-	<nav>
-		<a href="index.html">Home</a>
-		<a href="about.html">About</a>
-	</nav>
-	<main>
-		<section class="title-section">
-			<h1>Current leaderboard is a work in progress</h1>
-		</section>
-	</main>
-	<script src="script.js"></script>
+	<h1>Leaderboard</h1>
+	<div style=" display: flex;">
+		<div class="column">
+			<table id="leaderboard" style="visibility: hidden;">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Class</th>
+						<th>Score</th>
+					</tr>
+				</thead>
+				<tbody id="leaderboardBody"></tbody>
+			</table>
+		</div>
+	</div>
 </body>
+
 </html>
