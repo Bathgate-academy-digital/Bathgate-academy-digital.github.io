@@ -1,0 +1,30 @@
+:root{
+	--main-bg-color: #000000;
+	--main-font-color: rgb(255, 255, 255);
+	--secondary-bg-color: rgb(143, 143, 143);
+	--secondary-font-color: rgb(0, 0, 0);
+	--nav-bg-color: #8585856c;
+	--accent-color: rgb(125, 235, 74);
+	--footer-bg-color: rgb(136, 182, 115);
+}
+
+body > h1 {
+	text-align: center;
+	font-family: 'Tillana', sans-serif;
+	font-size: 50px;
+	color: white;
+	text-shadow: 2px 2px 4px #000000;
+}	
+
+#leaderboard {
+    width: max-content;
+    margin: 0 auto 60vh;
+    padding: 0.2em;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+#leaderboard td, #leaderboard th {
+    padding: 0.6rem;
+    border: 1px black
+}
