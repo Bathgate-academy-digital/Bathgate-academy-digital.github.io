@@ -63,6 +63,7 @@ function movePlayer() {
       updatePlayerPosition(direction)
       i++;
     } else {
+      recordedSequence = [];
       clearInterval(intervalId);
     }
   }, 500);
