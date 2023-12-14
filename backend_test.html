@@ -36,6 +36,14 @@
 			const response = await createUser(name, schoolClass, url);
 			document.getElementById('idOutput').innerHTML = JSON.stringify(response);
 		}
+
+		async function update() {
+			const url = document.getElementById('url').value;
+			const id = document.getElementById('id').value;
+			const score = document.getElementById('score').value;
+			const response = await updateScore(id, score, url);
+			document.getElementById('updateOutput').innerHTML = JSON.stringify(response);
+		}
 	</script>
 	<style>
 		.column {
@@ -53,6 +61,7 @@
 	<input type="text" id="url" name="url" style="width: 98%;""><br>
 	<div style=" display: flex;">
 	<div class="column">
+		<h2>Get leaderboard</h2>
 		<form>
 			<button type="button" onclick="showLeaderboard()">Get leaderboard</button>
 		</form>
@@ -68,6 +77,7 @@
 		</table>
 	</div>
 	<div class="column">
+		<h2>Create user</h2>
 		<form>
 			<label for="name">Name:</label><br>
 			<input type="text" id="name" name="name"><br>
@@ -77,6 +87,18 @@
 			<button type="button" onclick="submitUser()">Create user</button>
 		</form>
 		<p id="idOutput"></p>
+	</div>
+	<div class="column">
+		<h2>Update score</h2>
+		<form>
+			<label for="id">ID:</label><br>
+			<input type="text" id="id" name="id"><br>
+			<label for="score">Score:</label><br>
+			<input type="text" id="score" name="score"><br>
+			<br>
+			<button type="button" onclick="update()">Update score</button>
+		</form>
+		<p id="updateOutput"></p>
 	</div>
 	</div>
 </body>
