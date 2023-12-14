@@ -1,5 +1,5 @@
 async function getLeaderboard(url) {
-  const response = await fetch(`${url}`);
+  const response = await fetch(`${url}/api/leaderboard`);
   return response.json();
 }
 
@@ -16,6 +16,6 @@ async function createUser(name, showClass, url) {
     body: requestBody
   };
 
-  const response = await fetch(`${url}/api/submit`, options);
+  const response = await fetch(`${url}/api/create`, options);
   return response.json();
 }
