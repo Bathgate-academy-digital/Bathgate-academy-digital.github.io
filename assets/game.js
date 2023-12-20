@@ -1,7 +1,11 @@
 // Constants
 const tilesX = 9;
 const tilesY = 9;
-const tileWidth = 20;
+const tileWidth = 80;
+
+// Assets
+const playerImage = new Image();
+playerImage.src = "assets/robot.png";
 
 // Variables
 let recordedSequence = [];
@@ -17,7 +21,7 @@ canvas.width = tileWidth * tilesX;
 canvas.height = tileWidth * tilesY;
 ctx.strokeStyle = 'White';
 ctx.fillStyle = '#98ff98';
-updateCanvas();
+playerImage.onload = updateCanvas;
 
 // Function definitions
 
@@ -38,7 +42,7 @@ function drawGrid() {
 }
 
 function drawPlayer(x, y) {
-  ctx.fillRect(x * tileWidth, y * tileWidth, tileWidth, tileWidth);
+  ctx.drawImage(playerImage, x * tileWidth, y * tileWidth, tileWidth, tileWidth);
 }
 
 function startRecording() {
