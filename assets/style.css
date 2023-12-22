@@ -65,7 +65,7 @@ nav a {
 
 .title-text p {
 	font-weight: bold;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-family: Tillana;
 	margin: 0
 }
@@ -94,11 +94,39 @@ nav a {
 }
 
 footer {
-	font-family: Tillana;
-	font-weight: 800;
-	width: 100%;
-	padding: 1rem;
-	background-color: var(--footer-bg-color);
+    font-family: Tillana;
+    font-weight: 800;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgb(61, 212, 61);;
+    text-align: center;
+    box-sizing: border-box;
+    color: white;
+	text-shadow: 2px 2px 4px #000000;
+    position: fixed;
+    bottom: 0;
+}
+
+
+.backButton {
+	background-color: rgb(61, 212, 61);
+	border: none;
+	color: white;
+	padding: 15px 32px;
 	text-align: center;
-	box-sizing: border-box;
+	font-size: 16px;
+	width: 150px;
+	cursor: pointer;
+	margin-top: 15px;
+	border-radius: 8px;
+	font-family: 'Tillana', sans-serif;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.backButton a {
+	text-decoration: none;
+	color: inherit;
 }
