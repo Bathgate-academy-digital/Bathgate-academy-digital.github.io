@@ -1,5 +1,5 @@
 async function getLeaderboard(url) {
-  const response = await fetch(`${url}/api/leaderboard`);
+  const response = await fetch(`${url}`);
   return response.json();
 }
 

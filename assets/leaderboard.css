@@ -8,6 +8,13 @@
 	--footer-bg-color: rgb(136, 182, 115);
 }
 
+body {
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url('../Media/indexbackground.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
 body > h1 {
 	text-align: center;
 	font-family: 'Tillana', sans-serif;
@@ -18,13 +25,36 @@ body > h1 {
 
 #leaderboard {
     width: max-content;
-    margin: 0 auto 60vh;
+    margin: 0 auto 30vh;
     padding: 0.2em;
-    background-color: white;
+	font-family: 'Tillana', sans-serif;
+	color: #fff;
+	text-shadow: 2px 2px 4px #000000;
+	border-radius: 8px;
+    background-color: rgb(61, 212, 61);
     border-collapse: collapse;
 }
 
 #leaderboard td, #leaderboard th {
     padding: 0.6rem;
     border: 1px black
+}
+
+.backButton {
+	background-color: rgb(61, 212, 61);
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	font-size: 16px;
+	margin-left: 100px;
+	cursor: pointer;
+	border-radius: 8px;
+	font-family: 'Tillana', sans-serif;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.backButton a {
+	text-decoration: none;
+	color: inherit;
 }
