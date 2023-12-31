@@ -1,7 +1,5 @@
 const playerImage = new Image();
-playerImage.src = "assets/robot.png";
-const endGoalImage = new Image();
-endGoalImage.src = "Media/end_goal.png";
+playerImage.src = "assets/images/robot.png";
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -22,7 +20,7 @@ const tileMap = [];
 const grassIndex = 1;
 
 function loadTileImages() {
-  const imageSources = ['Media/bad_grass.png', 'Media/grass.png', 'Media/end_goal.png'];
+  const imageSources = ['assets/images/bad_grass.png', 'assets/images/grass.png', 'assets/images/end_goal.png'];
 
   imageSources.forEach((source, index) => {
     let img = new Image();
