@@ -13,7 +13,6 @@ canvas.height = tileWidth * tilesY;
 let recordedSequence = [];
 let playerX = 1;
 let playerY = 1;
-let invalidMoveCounter = 0;
 
 const tileImages = [];
 const tileMap = [];
@@ -121,18 +120,18 @@ function movePlayer() {
 
   let i = 0;
   const intervalId = setInterval(() => {
-    if (i < recordedSequence.length) {
-      const validMove = updatePlayerPosition(recordedSequence[i]);
-      if (!validMove) {
-        invalidMoveCounter++;
-        console.log(`Invalid moves: ${invalidMoveCounter}`);
-      }
-      i++;
-    } else {
-      recordedSequence = [];
-      document.addEventListener('keydown', recordKeyPress);
-      clearInterval(intervalId);
+    if (isComplete()) {
+      console.log('Maze completed!');
+      resetMaze(intervalId);
+      return;
     }
+    if (i > recordedSequence.length) {
+      console.log("Maze failed")
+      resetMaze(intervalId);
+      return;
+    }
+    updatePlayerPosition(recordedSequence[i]);
+    i++;
   }, 500);
 }
 
@@ -147,19 +146,27 @@ function updatePlayerPosition(direction) {
     case 'arrowright': newX++; break;
   }
 
-  if (newX >= 0 && newY >= 0 && newX < tilesX && newY < tilesY && tileMap[newY][newX] !== grassIndex) {
+  const isWithinBounds = newX >= 0 && newY >= 0 && newX < tilesX && newY < tilesY;
+  const isNotWall = tileMap[newY][newX] !== grassIndex;
+  if (isWithinBounds && isNotWall) {
     playerX = newX;
     playerY = newY;
     updateCanvas();
   }
+}
 
+function isComplete() {
   let tileIndex = tileMap[playerY][playerX];
   if (tileIndex === 2) {
-    console.log('Maze completed!');
     return true;
   }
+}
 
-  return false;
+function resetMaze(intervalId) {
+  recordedSequence = [];
+  document.addEventListener('keydown', recordKeyPress);
+  document.getElementById('moves-preview').replaceChildren();
+  clearInterval(intervalId);
 }
 
 playerImage.onload = initGame;
