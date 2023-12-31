@@ -25,7 +25,7 @@ const grassIndex = 1;
 function loadTileImages() {
   const imageSources = ['Media/bad_grass.png', 'Media/grass.png'];
   imageSources.push("Media/end_goal.png");
-  
+
   imageSources.forEach((source, index) => {
     let img = new Image();
     img.src = source;
@@ -73,7 +73,7 @@ function initGame() {
       tileMap[y][x] = mazeLayout[y][x];
     }
   }
-  
+
   loadTileImages();
 }
 
@@ -90,18 +90,31 @@ function drawPlayer(x, y) {
 
 function moveLeft() {
   recordedSequence.push('arrowleft');
+  displayArrow('-90deg');
 }
 
 function moveUp() {
   recordedSequence.push('arrowup');
+  displayArrow('0deg');
 }
 
 function moveDown() {
   recordedSequence.push('arrowdown');
+  displayArrow('180deg');
 }
 
 function moveRight() {
   recordedSequence.push('arrowright');
+  displayArrow('90deg');
+}
+
+function displayArrow(direction) {
+  const movesPreview = document.getElementById('moves-preview');
+
+  const arrow = document.createElement('img');
+  arrow.src = 'assets/images/arrow.svg';
+  arrow.style.rotate = direction;
+  movesPreview.appendChild(arrow);
 }
 
 function recordKeyPress(event) {
@@ -134,14 +147,14 @@ function movePlayer() {
 function updatePlayerPosition(direction) {
   let newX = playerX;
   let newY = playerY;
-  
+
   switch (direction) {
     case 'arrowup': newY--; break;
     case 'arrowdown': newY++; break;
     case 'arrowleft': newX--; break;
     case 'arrowright': newX++; break;
   }
-  
+
   if (newX >= 0 && newY >= 0 && newX < tilesX && newY < tilesY && tileMap[newY][newX] !== grassIndex) {
     playerX = newX;
     playerY = newY;
@@ -152,7 +165,7 @@ function updatePlayerPosition(direction) {
     console.log('Maze completed!');
     return true;
   }
-  
+
   return false;
 }
 
