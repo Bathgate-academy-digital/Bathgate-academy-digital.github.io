@@ -16,21 +16,19 @@ let recordedSequence = [];
 let playerX = 1;
 let playerY = 1;
 let invalidMoveCounter = 0;
-const endPosition = { x: 7, y: 7 };
 
 const tileImages = [];
 const tileMap = [];
 const grassIndex = 1;
 
 function loadTileImages() {
-  const imageSources = ['Media/bad_grass.png', 'Media/grass.png'];
-  imageSources.push("Media/end_goal.png");
+  const imageSources = ['Media/bad_grass.png', 'Media/grass.png', 'Media/end_goal.png'];
 
   imageSources.forEach((source, index) => {
     let img = new Image();
     img.src = source;
+    tileImages[index] = img;
     img.onload = () => {
-      tileImages[index] = img;
       if (tileImages.length === imageSources.length) {
         updateCanvas();
       }
@@ -42,12 +40,8 @@ function drawTiles() {
   for (let y = 0; y < tilesY; y++) {
     for (let x = 0; x < tilesX; x++) {
       let tileIndex = tileMap[y][x];
-      if (x === endPosition.x && y === endPosition.y) {
-        ctx.drawImage(endGoalImage, x * tileWidth, y * tileWidth, tileWidth, tileWidth);
-      } else {
-        let tileImage = tileImages[tileIndex];
-        ctx.drawImage(tileImage, x * tileWidth, y * tileWidth, tileWidth, tileWidth);
-      }
+      let tileImage = tileImages[tileIndex];
+      ctx.drawImage(tileImage, x * tileWidth, y * tileWidth, tileWidth, tileWidth);
     }
   }
 }
@@ -63,7 +57,7 @@ function initGame() {
     [1, 0, 1, 1, 1, 0, 1, 1, 1],
     [1, 0, 0, 0, 1, 0, 0, 0, 1],
     [1, 1, 1, 0, 1, 1, 1, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 2, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1],
   ];
 
@@ -161,7 +155,8 @@ function updatePlayerPosition(direction) {
     updateCanvas();
   }
 
-  if (playerX === endPosition.x && playerY === endPosition.y) {
+  let tileIndex = tileMap[playerY][playerX];
+  if (tileIndex === 2) {
     console.log('Maze completed!');
     return true;
   }
