@@ -3,8 +3,8 @@
 
 <head>
 	<title>Leaderboard</title>
-	<link id = "default" href="assets/style.css" rel="stylesheet" type="text/css"/>
-	<link id = "default" href="assets/leaderboard.css" rel="stylesheet" type="text/css"/>
+	<link id="default" href="assets/style.css" rel="stylesheet" type="text/css" />
+	<link id="default" href="assets/leaderboard.css" rel="stylesheet" type="text/css" />
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="assets/backend_funcs.js" defer></script>
@@ -21,7 +21,7 @@
 		}
 
 		async function showLeaderboard() {
-    		const items = getLeaderboard("https://jungle-rush-kk7piym5qq-nw.a.run.app/api/leaderboard");
+			const items = getLeaderboard("https://jungle-rush-kk7piym5qq-nw.a.run.app/api/leaderboard");
 
 			const leaderboardElement = document.getElementById("leaderboard");
 			leaderboardElement.style.visibility = 'visible';
@@ -65,9 +65,7 @@
 	</table>
 
 
-	<button class="backButton">
-		<a href="index.html">Back to Home</a>
-	</button>
+	<a href="index.html">Back to Home</a>
 </body>
 
 </html>

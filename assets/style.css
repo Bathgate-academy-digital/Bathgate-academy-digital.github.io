@@ -108,7 +108,7 @@ footer {
 }
 
 
-.backButton {
+.page-switch-button {
 	background-color: rgb(61, 212, 61);
 	border: none;
 	color: white;
@@ -120,13 +120,6 @@ footer {
 	margin-top: 15px;
 	border-radius: 8px;
 	font-family: 'Tillana', sans-serif;
-	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
 	text-shadow: 2px 2px 4px #000000;
-}
-
-.backButton a {
-	text-decoration: none;
-	color: inherit;
+    text-decoration: none;
 }
