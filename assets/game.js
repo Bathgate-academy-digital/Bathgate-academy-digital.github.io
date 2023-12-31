@@ -53,6 +53,8 @@ function drawTiles() {
 }
 
 function initGame() {
+  document.addEventListener('keydown', recordKeyPress);
+
   const mazeLayout = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -86,9 +88,20 @@ function drawPlayer(x, y) {
   ctx.drawImage(playerImage, x * tileWidth, y * tileWidth, tileWidth, tileWidth);
 }
 
-function startRecording() {
-  recordedSequence = [];
-  document.addEventListener('keydown', (event) => recordKeyPress(event));
+function moveLeft() {
+  recordedSequence.push('arrowleft');
+}
+
+function moveUp() {
+  recordedSequence.push('arrowup');
+}
+
+function moveDown() {
+  recordedSequence.push('arrowdown');
+}
+
+function moveRight() {
+  recordedSequence.push('arrowright');
 }
 
 function recordKeyPress(event) {
