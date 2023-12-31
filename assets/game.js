@@ -124,6 +124,8 @@ function movePlayer() {
       }
       i++;
     } else {
+      recordedSequence = [];
+      document.addEventListener('keydown', recordKeyPress);
       clearInterval(intervalId);
     }
   }, 500);
