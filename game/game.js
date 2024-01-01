@@ -119,20 +119,22 @@ function movePlayer() {
   document.removeEventListener('keydown', recordKeyPress);
 
   let i = 0;
-  const intervalId = setInterval(() => {
+  const moveToNextSquare = () => {
     if (isComplete()) {
       console.log('Maze completed!');
-      resetMaze(intervalId);
+      resetMaze();
       return;
     }
     if (i > recordedSequence.length) {
       console.log("Maze failed")
-      resetMaze(intervalId);
+      resetMaze();
       return;
     }
     updatePlayerPosition(recordedSequence[i]);
     i++;
-  }, 500);
+    setTimeout(moveToNextSquare, 500);
+  };
+  moveToNextSquare();
 }
 
 function updatePlayerPosition(direction) {
@@ -162,11 +164,10 @@ function isComplete() {
   }
 }
 
-function resetMaze(intervalId) {
+function resetMaze() {
   recordedSequence = [];
   document.addEventListener('keydown', recordKeyPress);
   document.getElementById('moves-preview').replaceChildren();
-  clearInterval(intervalId);
 }
 
 playerImage.onload = initGame;
