@@ -1,5 +1,6 @@
 const playerImage = new Image();
 playerImage.src = "assets/images/robot.png";
+let levels;
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -43,20 +44,12 @@ function drawTiles() {
   }
 }
 
-function initGame() {
+async function initGame() {
   document.addEventListener('keydown', recordKeyPress);
 
-  const mazeLayout = [
-    [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 1, 0, 1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 0, 0, 1, 0, 1],
-    [1, 0, 1, 1, 1, 0, 1, 1, 1],
-    [1, 0, 0, 0, 1, 0, 0, 0, 1],
-    [1, 1, 1, 0, 1, 1, 1, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 2, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1],
-  ];
+  const response = await fetch('./levels.json');
+  const json = await response.json();
+  const mazeLayout = json[0].layout;
 
   for (let y = 0; y < tilesY; y++) {
     tileMap[y] = [];
