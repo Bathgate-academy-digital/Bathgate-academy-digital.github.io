@@ -94,7 +94,7 @@ html {
 #controls {
   position: fixed;
   left: 50%;
-  bottom: 100px;
+  bottom: 5px;
   transform: translateX(-50%);
   text-align: center; 
 }
@@ -118,4 +118,21 @@ html {
   width: 100px;
   border: none;
   cursor: pointer;
+}
+
+#info-text {
+  position: fixed;
+  left: 50%;
+  top: 0px;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: var(--light);
+  color: var(--main-font-color);
+}
+
+#canvas {
+  border: 1px solid var(--main-font-color);
+  border-radius: 5px;
+  background-color: var(--main-bg-color);
 }
