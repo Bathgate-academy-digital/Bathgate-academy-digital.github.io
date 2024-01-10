@@ -126,7 +126,11 @@ function movePlayer() {
   let i = 0;
   const moveToNextSquare = () => {
     if (isComplete()) {
-      showComplete();
+      if (currentLevel == levels.length - 1) {
+        showGameEnd();
+      } else {
+        showComplete();
+      }
       return;
     }
     if (i > recordedSequence.length) {
