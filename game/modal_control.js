@@ -8,6 +8,7 @@ function showComplete() {
   modalHeader.innerHTML = 'Level complete!';
   modalDescription.innerHTML = 'Well done, click the button below for the next level:';
   modalButton.innerHTML = 'Next';
+  modalButton.onmousedown = nextLevel;
   showModal();
 }
 
@@ -15,6 +16,7 @@ function showFailed() {
   modalHeader.innerHTML = 'Level unsuccessful';
   modalDescription.innerHTML = 'Don\'t worry, click the button to retry';
   modalButton.innerHTML = 'Retry';
+  modalButton.onmousedown = resetLevel;
   showModal();
 }
 
@@ -24,7 +26,7 @@ function showModal() {
   modalContent.classList.remove("closed")
 }
 
-function hideComplete() {
+function hideModal() {
   modal.classList.remove("darkened-modal");
   modal.classList.add("closed");
   modalContent.classList.add("closed")

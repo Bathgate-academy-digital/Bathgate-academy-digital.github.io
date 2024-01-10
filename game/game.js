@@ -11,6 +11,7 @@ const tilesY = 9;
 canvas.width = tileWidth * tilesX;
 canvas.height = tileWidth * tilesY;
 
+let currentLevel = 0;
 let recordedSequence = [];
 let playerX = 1;
 let playerY = 1;
@@ -48,9 +49,17 @@ async function initGame() {
   document.addEventListener('keydown', recordKeyPress);
 
   const response = await fetch('./levels.json');
-  const json = await response.json();
-  const mazeLayout = json[0].layout;
+  levels = await response.json();
+  loadLevel(currentLevel);
+}
 
+function loadLevel(levelNumber) {
+  const level = levels[levelNumber];
+
+  playerX = level.start_position[0];
+  playerY = level.start_position[1];
+
+  const mazeLayout = level.layout;
   for (let y = 0; y < tilesY; y++) {
     tileMap[y] = [];
     for (let x = 0; x < tilesX; x++) {
@@ -118,12 +127,10 @@ function movePlayer() {
   const moveToNextSquare = () => {
     if (isComplete()) {
       showComplete();
-      resetMaze();
       return;
     }
     if (i > recordedSequence.length) {
       showFailed();
-      resetMaze();
       return;
     }
     updatePlayerPosition(recordedSequence[i]);
@@ -164,6 +171,19 @@ function resetMaze() {
   recordedSequence = [];
   document.addEventListener('keydown', recordKeyPress);
   document.getElementById('moves-preview').replaceChildren();
+}
+
+function nextLevel() {
+  currentLevel++;
+  resetMaze();
+  loadLevel(currentLevel);
+  hideModal();
+}
+
+function resetLevel() {
+  resetMaze();
+  loadLevel(currentLevel);
+  hideModal();
 }
 
 playerImage.onload = initGame;
