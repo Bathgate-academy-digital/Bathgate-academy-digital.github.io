@@ -1,7 +1,7 @@
 html {
   --main-bg-color: #160C28;
   --main-font-color: white;
-  --modal-card-bg-color: #331e36;
+  --modal-card-bg-color: #1f5a31;
   --bold: 600;
   --medium: 400;
   --light: 300;
@@ -9,6 +9,7 @@ html {
 
 #moves-preview {
   height: 3em;
+  width: 100%;
 }
 
 #moves-preview img {
@@ -88,4 +89,33 @@ html {
 
 #modal-description .smaller {
   font-size: 1.5rem;
+}
+
+#controls {
+  position: fixed;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
+  text-align: center; 
+}
+
+#controls button {
+  width: 160px;
+  margin: 2px;
+}
+
+#horizontal-controls {
+  display: flex; 
+  justify-content: center;
+  gap: 10px;
+}
+
+#controls button {
+  margin: 5px;
+}
+
+#move-button {
+  width: 100px;
+  border: none;
+  cursor: pointer;
 }
