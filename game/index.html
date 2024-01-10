@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Canvas MVP</title>
+	<title>Jungle Rush Game</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8" />
@@ -23,12 +23,14 @@
 	<canvas id="canvas" width="800" height="800"></canvas>
 	<p>Press the direction buttons and then hit "Move"</p>
 	<div id="moves-preview"></div>
-	<button onclick="movePlayer()">Move</button>
 	<div id="controls">
-		<button onclick="moveLeft()">Left</button>
+		<button	button onclick="movePlayer()" id="move-button">Move</button>
 		<button onclick="moveUp()">Up</button>
-		<button onclick="moveDown()">Down</button>
-		<button onclick="moveRight()">Right</button>
+		<div id="horizontal-controls">
+			<button onclick="moveLeft()">Left</button>
+			<button onclick="moveDown()">Down</button>
+			<button onclick="moveRight()">Right</button>
+		</div>
 	</div>
 </body>
 
