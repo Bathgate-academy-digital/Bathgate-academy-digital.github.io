@@ -20,6 +20,9 @@ const tileImages = [];
 const tileMap = [];
 const grassIndex = 1;
 
+let startTime;
+let endTime;
+
 function loadTileImages() {
   const imageSources = ['assets/images/bad_grass.png', 'assets/images/grass.png', 'assets/images/end_goal.png'];
 
@@ -50,6 +53,7 @@ async function initGame() {
 
   const response = await fetch('./levels.json');
   levels = await response.json();
+  startTimer();
   loadLevel(currentLevel);
 }
 
@@ -69,7 +73,6 @@ function loadLevel(levelNumber) {
 
   loadTileImages();
 }
-
 function updateCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawTiles();
@@ -110,6 +113,23 @@ function displayArrow(direction) {
   movesPreview.appendChild(arrow);
 }
 
+function startTimer() {
+  startTime = new Date();
+}
+
+function stopTimer() {
+  endTime = new Date();
+  time = Math.floor((endTime - startTime) / 1000);
+}
+
+
+function addPenalty() {
+  const currentTime = new Date();
+  let elapsedTime = Math.floor((currentTime - startTime) / 1000);
+  elapsedTime += 5;
+  startTime = new Date(currentTime - elapsedTime * 1000);
+}
+
 function recordKeyPress(event) {
   const key = event.key.toLowerCase();
   switch (key) {
@@ -124,9 +144,12 @@ function movePlayer() {
   document.removeEventListener('keydown', recordKeyPress);
 
   let i = 0;
+
   const moveToNextSquare = () => {
     if (isComplete()) {
       if (currentLevel == levels.length - 1) {
+        stopTimer();
+        alert(`You completed the game in ${time} seconds!`);
         showGameEnd();
       } else {
         showComplete();
@@ -156,8 +179,13 @@ function updatePlayerPosition(direction) {
   }
 
   const isWithinBounds = newX >= 0 && newY >= 0 && newX < tilesX && newY < tilesY;
-  const isNotWall = tileMap[newY][newX] !== grassIndex;
-  if (isWithinBounds && isNotWall) {
+  const isWall = isWithinBounds && tileMap[newY][newX] === grassIndex;
+
+  if (!isWithinBounds || isWall) {
+    addPenalty();
+  }
+
+  if (isWithinBounds && !isWall) {
     playerX = newX;
     playerY = newY;
     updateCanvas();
