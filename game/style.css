@@ -1,10 +1,13 @@
 html {
-  --main-bg-color: #160C28;
   --main-font-color: white;
-  --modal-card-bg-color: #1f5a31;
+  --modal-card-bg-color: var(--accent-color);
   --bold: 600;
   --medium: 400;
   --light: 300;
+}
+
+html {
+  background-color: var(--main-bg-color);
 }
 
 #moves-preview {
@@ -32,7 +35,7 @@ html {
 
 #modal.darkened-modal {
   transition: background-color 0.3s ease-out, backdrop-filter 0.3s, height 0s linear 0s;
-  backdrop-filter: blur(15px) saturate(20%);
+  backdrop-filter: blur(10px) saturate(60%);
   background-color: rgba(0, 0, 0, 0.3);
 }
 
