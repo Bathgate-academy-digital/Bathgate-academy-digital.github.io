@@ -6,7 +6,7 @@ html {
   --light: 300;
 }
 
-html {
+html, body {
   background-color: var(--main-bg-color);
 }
 
