@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Jungle Rush</title>
+	<link id="default" href="../assets/variables.css" rel="stylesheet" type="text/css" />
+	<link id="default" href="../assets/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vina Sans|Tillana">
+	<script src="../assets/backend_funcs.js" defer></script>
+	<script src="script.js" defer></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="home-screen">
+	<section class="title-section">
+		<div id="login-panel">
+			<h1 class="title-text">Enter your name and class</h1>
+			<form id="login-form">
+				<label for="name">Name:</label><br>
+				<input type="text" id="name" name="name"><br>
+				<label for="class">Class:</label><br>
+				<input type="text" id="class" name="class"><br>
+				<br>
+			</form>
+		</div>
+		<div class="home-button-container">
+			<button type="button" onclick="submitUser()" class="page-switch-button">Start playing!</button>
+		</div>
+	</section>
+</body>
+
+</html>

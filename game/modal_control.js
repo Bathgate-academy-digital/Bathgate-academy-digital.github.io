@@ -24,7 +24,7 @@ function showGameEnd() {
   modalHeader.innerHTML = 'Game complete!🎉';
   modalDescription.innerHTML = 'Yay, you\'re done now, have a look at the leaderboard:';
   modalButton.innerHTML = 'Leaderboard';
-  modalButton.onmousedown = () => window.location.replace("../leaderboard.html");
+  modalButton.onmousedown = () => window.location.replace("../leaderboard/");
   showModal();
 }
 
