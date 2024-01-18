@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="../assets/backend_funcs.js" defer></script>
 	<script src="modal_control.js" defer></script>
 	<script src="game.js" defer></script>
 </head>
@@ -24,7 +25,7 @@
 	<p id="info-text">Press the direction buttons and then hit "Move"</p>
 	<div id="moves-preview"></div>
 	<div id="controls">
-		<button	button onclick="movePlayer()" id="move-button">Move</button>
+		<button button onclick="movePlayer()" id="move-button">Move</button>
 		<button onclick="moveUp()">Up</button>
 		<div id="horizontal-controls">
 			<button onclick="moveLeft()">Left</button>

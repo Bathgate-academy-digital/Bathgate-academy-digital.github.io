@@ -119,7 +119,7 @@ function startTimer() {
 
 function stopTimer() {
   endTime = new Date();
-  time = Math.floor((endTime - startTime) / 1000);
+  return Math.floor((endTime - startTime) / 1000);
 }
 
 
@@ -148,9 +148,7 @@ function movePlayer() {
   const moveToNextSquare = () => {
     if (isComplete()) {
       if (currentLevel == levels.length - 1) {
-        stopTimer();
-        alert(`You completed the game in ${time} seconds!`);
-        showGameEnd();
+        gameComplete();
       } else {
         showComplete();
       }
@@ -217,5 +215,17 @@ function resetLevel() {
   loadLevel(currentLevel);
   hideModal();
 }
+
+async function gameComplete() {
+  const time = stopTimer();
+  const id = localStorage.getItem('id');
+  const responseFuture = updateTime(id, time);
+  showGameEnd();
+  const response = await responseFuture;
+  if (response.success !== true) {
+    alert('Error uploading results')
+  }
+}
+
 
 playerImage.onload = initGame;
