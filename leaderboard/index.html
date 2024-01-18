@@ -8,48 +8,8 @@
 	<link id="default" href="leaderboard.css" rel="stylesheet" type="text/css" />
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="assets/backend_funcs.js" defer></script>
-	<script defer>
-		async function getLeaderboard(url) {
-			try {
-				const response = await fetch(`${url}`);
-				return response.json();
-			} catch (error) {
-				console.error("Error fetching leaderboard:", error);
-				console.error("Response text:", await response.text());
-				throw error;
-			}
-		}
-
-		async function showLeaderboard() {
-			const items = getLeaderboard("https://jungle-rush-kk7piym5qq-nw.a.run.app/api/leaderboard");
-
-			const leaderboardElement = document.getElementById("leaderboard");
-			leaderboardElement.style.visibility = 'visible';
-
-			const table = document.getElementById('leaderboardBody');
-			table.replaceChildren();
-			(await items).forEach(item => {
-				let row = table.insertRow();
-				let name = row.insertCell(0);
-				name.innerHTML = item.name;
-				let schoolClass = row.insertCell(1);
-				schoolClass.innerHTML = item.class;
-				let score = row.insertCell(2);
-				score.innerHTML = item.score;
-			});
-		}
-
-		async function submitUser() {
-			const name = document.getElementById('name').value;
-			const schoolClass = document.getElementById('class').value;
-			const response = await createUser(name, schoolClass, "https://jungle-rush-kk7piym5qq-nw.a.run.app/api/leaderboard");
-			document.getElementById('idOutput').innerHTML = JSON.stringify(response);
-		}
-
-		// Call showLeaderboard function when the page is loaded
-		window.onload = showLeaderboard;
-	</script>
+	<script src="../assets/backend_funcs.js" defer></script>
+	<script src="script.js" defer></script>
 </head>
 
 <body>
@@ -59,7 +19,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Class</th>
-				<th>Score</th>
+				<th>Time</th>
 			</tr>
 		</thead>
 		<tbody id="leaderboardBody"></tbody>
