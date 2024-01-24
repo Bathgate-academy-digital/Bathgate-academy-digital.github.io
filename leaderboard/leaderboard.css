@@ -29,3 +29,14 @@ body > h1 {
     padding: 0.6rem;
     border: 1px black
 }
+.home-button {
+	font-family: Tillana;
+	font-weight: 800;
+	padding: 1.5rem;
+	margin: 1rem;
+	background-color: var(--secondary-bg-color);
+	color: var(--secondary-font-color);
+	border-radius: 65px;
+	font-size: 1.5rem;
+	text-decoration: none
+}
