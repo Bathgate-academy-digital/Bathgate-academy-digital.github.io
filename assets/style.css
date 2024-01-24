@@ -137,7 +137,7 @@ input[type=text]{
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
      border-radius: 20px;
-     color: #a0d18c;
+     color: var(--secondary-font-color);
      width: 250px;
      height: 30px;
      padding-left: 10px;
