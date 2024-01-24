@@ -119,6 +119,7 @@ footer {
 	width: 50%;
 	border-radius: 8px;
 	background: var(--panel-bg-color);
+	font-family: Tillana;
 }
 
 #login-form * {
@@ -126,9 +127,18 @@ footer {
 }
 
 #login-form input {
-	width: 80%;
+	width: 90%;
 }
 
 #login-form label {
 	color: var(--main-font-color);
 }
+input[type=text]{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     color: #a0d18c;
+     width: 250px;
+     height: 30px;
+     padding-left: 10px;
+    }
