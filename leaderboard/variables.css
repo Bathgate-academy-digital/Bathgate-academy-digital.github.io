@@ -1,0 +1,10 @@
+:root {
+	--main-bg-color: rgb(83, 116, 79);
+	--main-font-color: rgb(255, 255, 255);
+	--secondary-bg-color: rgb(143, 143, 143);
+	--secondary-font-color: rgb(0, 0, 0);
+	--nav-bg-color: #8585856c;
+	--accent-color: rgba(63, 141, 55, 0.9);
+	--panel-bg-color: rgba(63, 141, 55, 0.9);
+	--footer-bg-color: var(--accent-color);
+}
