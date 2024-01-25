@@ -33,6 +33,11 @@ nav a {
 	padding: 0.5rem;
 }
 
+small {
+	font-size: 1rem;
+	color: var(--main-font-color);
+}
+
 .title-section {
 	height: 100%;
 	width: 100%;
@@ -133,12 +138,13 @@ footer {
 #login-form label {
 	color: var(--main-font-color);
 }
-input[type=text]{
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-     border-radius: 20px;
-     color: var(--secondary-font-color);
-     width: 250px;
-     height: 30px;
-     padding-left: 10px;
-    }
+
+input[type=text] {
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	color: var(--secondary-font-color);
+	width: 250px;
+	height: 30px;
+	padding-left: 10px;
+}
