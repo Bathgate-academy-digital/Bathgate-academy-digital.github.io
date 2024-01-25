@@ -1,8 +1,14 @@
 const url = 'https://jungle-rush-kk7piym5qq-nw.a.run.app';
 
-async function getLeaderboard(url) {
-  const response = await fetch(`${url}`);
-  return response.json();
+async function getLeaderboard() {
+  try {
+    const response = await fetch(`${url}/api/leaderboard`);
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching leaderboard:", error);
+    console.error("Response text:", await response.text());
+    throw error;
+  }
 }
 
 async function createUser(name, showClass) {
