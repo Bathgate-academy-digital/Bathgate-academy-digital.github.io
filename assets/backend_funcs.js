@@ -13,7 +13,6 @@ async function getLeaderboard() {
 
 async function createUser(name, showClass) {
   const requestBody = `name=${name}&class=${showClass}`;
-  console.log(requestBody);
   const requestHeaders = {
     'Accept': 'application/json',
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -31,7 +30,6 @@ async function createUser(name, showClass) {
 async function updateTime(id, time) {
   const formattedTime = secondsToHHMMSS(time);
   const requestBody = `id=${id}&time=${formattedTime}`;
-  console.log(requestBody);
   const requestHeaders = {
     'Accept': 'application/json',
     'Content-Type': 'application/x-www-form-urlencoded'
