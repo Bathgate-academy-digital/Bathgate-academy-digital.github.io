@@ -124,11 +124,23 @@ footer {
 }
 
 #login-panel {
-	margin: auto;
-	width: 80%;
-	border-radius: 8px;
-	background: var(--panel-bg-color);
-	font-family: Tillana;
+    margin: auto;
+    border-radius: 8px;
+    background: var(--panel-bg-color);
+    font-family: Tillana;
+	text-align: center;
+}
+
+/* default styles for desktop */
+#login-panel {
+    width: 30%;
+}
+
+/* media query for mobile devices */
+@media only screen and (max-width: 768px) {
+    #login-panel {
+        width: 80%;
+    }
 }
 
 #login-form * {
@@ -153,12 +165,11 @@ input[type=text] {
 	padding: 10px 20px 10px 20px;
 	border: solid #fff 1px;
 	outline: none;
-	width: 70%;
 	height: 30px;
 }
 
 #login-form input[type=text] {
-    width: 80% !important;
+    width: 60% !important;
 }
 
 input[type=text]:focus {
