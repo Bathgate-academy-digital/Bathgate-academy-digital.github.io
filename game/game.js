@@ -4,7 +4,7 @@ let levels;
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const tileWidth = 80;
+const tileWidth = 200;
 const tilesX = 9;
 const tilesY = 9;
 

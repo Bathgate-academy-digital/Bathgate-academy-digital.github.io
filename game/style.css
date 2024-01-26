@@ -6,7 +6,8 @@ html {
   --light: 300;
 }
 
-html, body {
+html,
+body {
   background-color: var(--main-bg-color);
 }
 
@@ -100,7 +101,7 @@ html, body {
   left: 50%;
   bottom: 5px;
   transform: translateX(-50%);
-  text-align: center; 
+  text-align: center;
 }
 
 #controls button {
@@ -109,7 +110,7 @@ html, body {
 }
 
 #horizontal-controls {
-  display: flex; 
+  display: flex;
   justify-content: center;
   gap: 10px;
 }
@@ -136,6 +137,7 @@ html, body {
 }
 
 #canvas {
+  width: 100%;
   border: 1px solid var(--main-font-color);
   border-radius: 5px;
   background-color: var(--main-bg-color);
