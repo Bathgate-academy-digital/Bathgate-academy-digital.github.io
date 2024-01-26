@@ -30,6 +30,7 @@ html, body {
   overflow: auto;
   background-color: #0000;
   backdrop-filter: blur(0px) saturate(100%);
+  color: white;
   transition: background-color 0.4s ease-in, backdrop-filter 0.3s, height 0s linear 0s;
 }
 
