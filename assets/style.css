@@ -125,7 +125,7 @@ footer {
 
 #login-panel {
 	margin: auto;
-	width: 50%;
+	width: 80%;
 	border-radius: 8px;
 	background: var(--panel-bg-color);
 	font-family: Tillana;
@@ -147,8 +147,26 @@ input[type=text] {
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
-	color: var(--secondary-font-color);
-	width: 250px;
+	color: #fff;
+	font-size: 16px;
+	background: var(--accent-color);
+	padding: 10px 20px 10px 20px;
+	border: solid #fff 1px;
+	outline: none;
+	width: 70%;
 	height: 30px;
-	padding-left: 10px;
+}
+
+#login-form input[type=text] {
+    width: 80% !important;
+}
+
+input[type=text]:focus {
+	-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 1);
+	-moz-box-shadow: 0 0 5px rgba(255, 255, 255, 1);
+	box-shadow: 0 0 5px rgba(255, 255, 255, 1);
+}
+
+input[type=text]::placeholder {
+	color: #fff;
 }
