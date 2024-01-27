@@ -9,6 +9,10 @@ html {
 html,
 body {
   background-color: var(--main-bg-color);
+  max-width: 800px;
+  margin: 20px auto;
+  text-rendering: optimizeLegibility;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
 }
 
 #moves-preview {
@@ -105,18 +109,19 @@ body {
 }
 
 #controls button {
+  color: var(--main-font-color);
   width: 160px;
-  margin: 2px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #0c151c;
+  border: none;
+  border-radius: 6px;
 }
 
 #horizontal-controls {
   display: flex;
   justify-content: center;
   gap: 10px;
-}
-
-#controls button {
-  margin: 5px;
 }
 
 #move-button {
