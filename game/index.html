@@ -24,15 +24,13 @@
 	<canvas id="canvas"></canvas>
 	<p id="info-text">Press the direction buttons and then hit "Move"</p>
 	<div id="moves-preview"></div>
-	<div id="controls">
-		<button button onclick="movePlayer()" id="move-button">Move</button>
-		<button onclick="moveUp()">Up</button>
-		<div id="horizontal-controls">
-			<button onclick="moveLeft()">Left</button>
-			<button onclick="moveDown()">Down</button>
-			<button onclick="moveRight()">Right</button>
-		</div>
+	<div class="arrow-container">
+		<button class="up" onclick="moveUp()">&#8593;</button>
+		<button class="left" onclick="moveLeft()">&#8592;</button>
+		<button class="down" onclick="moveDown()">&#8595;</button>
+		<button class="right" onclick="moveRight()">&#8594;</button>
 	</div>
+	<button id="move" onclick="movePlayer()">Move</button>
 </body>
 
 </html>
