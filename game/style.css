@@ -53,7 +53,8 @@ button:hover {
 }
 
 #modal {
-  display: block;
+  display: grid;
+  place-content: center;
   position: fixed;
   z-index: 99;
   left: 0;
@@ -80,9 +81,8 @@ button:hover {
 
 #modal-content {
   display: flex;
-  position: relative;
   flex-direction: column;
-  margin: 2% auto;
+  margin: auto;
   padding: 2%;
   background-color: var(--modal-card-bg-color);
   box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
@@ -101,9 +101,8 @@ button:hover {
 
 #modal-next-button {
   margin: 0 2%;
-  border: none;
-  background-color: #0000;
-  font-size: 60px;
+  background-color: var(--accent-color);
+  font-size: 2rem;
   font-weight: var(--bold);
   cursor: pointer;
   transition: all 0.2s ease-out;
@@ -121,10 +120,6 @@ button:hover {
 
 #modal-description {
   font-weight: var(--light);
-  font-size: 2.4rem;
-}
-
-#modal-description .smaller {
   font-size: 1.5rem;
 }
 
