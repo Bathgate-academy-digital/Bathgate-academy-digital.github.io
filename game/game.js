@@ -21,7 +21,6 @@ const tileMap = [];
 const grassIndex = 1;
 
 let startTime;
-let endTime;
 
 function loadTileImages() {
   const imageSources = ['assets/images/bad_grass.png', 'assets/images/grass.png', 'assets/images/end_goal.png'];
@@ -48,16 +47,25 @@ function drawTiles() {
   }
 }
 
+function incrementTimer() {
+  const timeString = secondsToHHMMSS(getTime());
+  document.getElementById('timer').innerHTML = timeString;
+}
+
 async function initGame() {
   document.addEventListener('keydown', recordKeyPress);
 
   const response = await fetch('./levels.json');
   levels = await response.json();
   startTimer();
+  incrementTimer();
+  setInterval(incrementTimer, 1000);
   loadLevel(currentLevel);
 }
 
 function loadLevel(levelNumber) {
+  const levelTracker = document.getElementById('level-tracker');
+  levelTracker.innerHTML = `${levelNumber + 1}/${levels.length}`;
   const level = levels[levelNumber];
 
   playerX = level.start_position[0];
@@ -122,8 +130,8 @@ function startTimer() {
   startTime = new Date();
 }
 
-function stopTimer() {
-  endTime = new Date();
+function getTime() {
+  const endTime = new Date();
   return Math.floor((endTime - startTime) / 1000);
 }
 
@@ -222,7 +230,7 @@ function resetLevel() {
 }
 
 async function gameComplete() {
-  const time = stopTimer();
+  const time = getTime();
   const id = localStorage.getItem('id');
   const responseFuture = updateTime(id, time);
   showGameEnd();
