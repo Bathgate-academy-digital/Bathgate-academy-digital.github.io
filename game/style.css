@@ -36,7 +36,7 @@ header * {
 }
 
 button {
-  padding: 10px;
+  padding: 0.7rem;
   border-radius: 0.4em;
   border: none;
   color: var(--main-font-color);
@@ -176,7 +176,18 @@ button:hover {
   grid-column: 3;
 }
 
-#move {
+#move-and-backspace {
   align-self: stretch;
+  display: flex;
+  justify-content: end;
+  gap: 0.3rem;
   font-size: 1.5rem;
+}
+
+#move-and-backspace * {
+  padding: 0.7rem 1.5rem;
+}
+
+#move {
+  flex-grow: 1;
 }

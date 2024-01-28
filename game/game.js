@@ -126,6 +126,14 @@ function displayArrow(direction) {
   });
 }
 
+function backspace() {
+  if (recordedSequence.length <= 0) return;
+
+  recordedSequence.pop();
+  const movesPreview = document.getElementById('moves-preview');
+  movesPreview.removeChild(movesPreview.lastChild);
+}
+
 function startTimer() {
   startTime = new Date();
 }
