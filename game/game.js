@@ -111,6 +111,11 @@ function displayArrow(direction) {
   arrow.src = 'assets/images/arrow.svg';
   arrow.style.rotate = direction;
   movesPreview.appendChild(arrow);
+
+  movesPreview.scrollTo({
+    left: movesPreview.scrollWidth,
+    behavior: "smooth",
+  });
 }
 
 function startTimer() {
