@@ -1,4 +1,4 @@
-const url = 'https://jungle-rush-kk7piym5qq-nw.a.run.app';
+const url = 'https://jungle-rush-3hqcrnbkla-nw.a.run.app';
 
 async function getLeaderboard() {
   try {
