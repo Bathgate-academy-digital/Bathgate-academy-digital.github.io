@@ -14,11 +14,14 @@
 </head>
 
 <body>
-	<section id="modal" class="closed">
-		<div id="modal-content" class="closed">
-			<h1 id="modal-text-header"></h1>
-			<p id="modal-description"></p>
-			<button id="modal-next-button"></button>
+	<section id="modal" class="darkened-modal">
+		<div id="modal-content" class="large">
+			<h1 id="modal-text-header">A robot has been sent into the jungle</h1>
+			<p id="modal-description">
+				Use the buttons on screen to build a sequence of moves.
+				Once you are happy with your sequence press the 'MOVE' button and watch your robot move through the jungle.
+			</p>
+			<button id="modal-next-button" onmousedown="hideInstructions()">Start</button>
 		</div>
 	</section>
 	<header>

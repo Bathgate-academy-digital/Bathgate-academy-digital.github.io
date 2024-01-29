@@ -28,6 +28,11 @@ function showGameEnd() {
   showModal();
 }
 
+function hideInstructions() {
+  modalContent.classList.remove("large")
+  hideModal();
+}
+
 function showModal() {
   modal.classList.remove("closed");
   modal.classList.add("darkened-modal");
