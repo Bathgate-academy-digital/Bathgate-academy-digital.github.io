@@ -21,6 +21,7 @@ const tileMap = [];
 const grassIndex = 1;
 
 let startTime;
+let isMoving = false;
 
 function loadTileImages() {
   const imageSources = ['assets/images/bad_grass.png', 'assets/images/grass.png', 'assets/images/end_goal.png'];
@@ -162,12 +163,15 @@ function recordKeyPress(event) {
 }
 
 function movePlayer() {
+  if (isMoving) return;
+  isMoving = true;
   document.removeEventListener('keydown', recordKeyPress);
 
   let i = 0;
 
   const moveToNextSquare = () => {
     if (isComplete()) {
+      isMoving = false;
       if (currentLevel == levels.length - 1) {
         gameComplete();
       } else {
