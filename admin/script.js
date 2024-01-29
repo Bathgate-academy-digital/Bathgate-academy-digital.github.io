@@ -1,5 +1,7 @@
 async function showLeaderboard() {
-  const items = getLeaderboard();
+  const classDropdown = document.getElementById('classDropdown');
+  const selectedClass = classDropdown.value;
+  const items = await getLeaderboard(selectedClass);
 
   const leaderboardElement = document.getElementById("leaderboard");
   leaderboardElement.style.visibility = 'visible';

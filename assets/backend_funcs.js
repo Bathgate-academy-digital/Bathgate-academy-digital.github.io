@@ -1,14 +1,22 @@
 const url = 'https://jungle-rush-3hqcrnbkla-nw.a.run.app';
 
-async function getLeaderboard() {
+async function getLeaderboard(classFilter) {
   try {
-    const response = await fetch(`${url}/api/leaderboard`);
+    const response = await fetch(`${url}/api/leaderboard${classFilter ? `?class=${classFilter}` : ''}`);
     return response.json();
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
     console.error("Response text:", await response.text());
     throw error;
   }
+}
+
+async function updateLeaderboard() {
+  const classDropdown = document.getElementById('classDropdown');
+  const selectedClass = classDropdown.value;
+  const leaderboard = await getLeaderboard(selectedClass);
+  const leaderboardElement = document.getElementById("leaderboard");
+  leaderboardElement.style.visibility = 'visible';
 }
 
 async function createUser(name, showClass) {
