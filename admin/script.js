@@ -1,6 +1,4 @@
-async function showLeaderboard() {
-  const classDropdown = document.getElementById('classDropdown');
-  const selectedClass = classDropdown.value;
+async function showLeaderboard(selectedClass) {
   const items = await getLeaderboard(selectedClass);
 
   const leaderboardElement = document.getElementById("leaderboard");
@@ -9,24 +7,45 @@ async function showLeaderboard() {
   const table = document.getElementById('leaderboardBody');
   table.replaceChildren();
 
-  (await items).forEach(item => {
-    let row = table.insertRow();
-    let name = row.insertCell(0);
-    name.innerHTML = item.name;
-    let schoolClass = row.insertCell(1);
-    schoolClass.innerHTML = item.class;
-    let score = row.insertCell(2);
-    score.innerHTML = item.time;
+  if (items.length === 0) {
+    let noDataRow = table.insertRow();
+    let noDataCell = noDataRow.insertCell(0);
+    noDataCell.colSpan = 4; // Update colspan to include the Remove button cell
+    noDataCell.innerHTML = '<h3>No Data Found!</h3>';
+  } else {
+    (await items).forEach(item => {
+      let row = table.insertRow();
+      let name = row.insertCell(0);
+      name.innerHTML = item.name;
+      let schoolClass = row.insertCell(1);
+      schoolClass.innerHTML = item.class;
+      let score = row.insertCell(2);
+      score.innerHTML = item.time;
 
-    // Add remove button to delete the entry
-    let removeButtonCell = row.insertCell(3);
-    let removeButton = document.createElement("button");
-    removeButton.innerHTML = "Remove";
-    removeButton.onclick = function() {
-      deleteUser(item.name, item.class);
-    };
-    removeButtonCell.appendChild(removeButton);
-  });
+      let removeButtonCell = row.insertCell(3);
+      let removeButton = document.createElement("button");
+      removeButton.innerHTML = "Remove";
+      removeButton.className = "remove-button"; // Apply the remove button style
+      removeButton.onclick = function () {
+        deleteUser(item.name, item.class);
+      };
+      removeButtonCell.appendChild(removeButton);
+    });
+  }
 }
 
-window.onload = showLeaderboard;
+const classDropdown = document.getElementById('classDropdown');
+classDropdown.addEventListener('change', function() {
+  const selectedClass = classDropdown.value;
+  showLeaderboard(selectedClass);
+});
+
+window.onload = function() {
+  const selectedClass = classDropdown.value;
+  showLeaderboard(selectedClass);
+};
+
+window.setInterval(function() {
+  const selectedClass = classDropdown.value;
+  showLeaderboard(selectedClass);
+});

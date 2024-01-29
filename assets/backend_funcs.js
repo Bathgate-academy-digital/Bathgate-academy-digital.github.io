@@ -13,6 +13,7 @@ async function getLeaderboard(classFilter) {
 
 async function updateLeaderboard() {
   const classDropdown = document.getElementById('classDropdown');
+  console.log("Selected class:", classDropdown.value)
   const selectedClass = classDropdown.value;
   const leaderboard = await getLeaderboard(selectedClass);
   const leaderboardElement = document.getElementById("leaderboard");

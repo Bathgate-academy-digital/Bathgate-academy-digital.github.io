@@ -5,7 +5,7 @@
 	<title>Leaderboard</title>
 	<link id="default" href="../assets/variables.css" rel="stylesheet" type="text/css" />
 	<link id="default" href="../assets/style.css" rel="stylesheet" type="text/css" />
-	<link id="default" href="leaderboard.css" rel="stylesheet" type="text/css" />
+	<link id="default" href="./leaderboard.css" rel="stylesheet" type="text/css" />
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="../assets/backend_funcs.js" defer></script>
@@ -14,7 +14,21 @@
 </head>
 
 <body>
-	<h1>Leaderboard</h1>
+	<h1>Admin</h1>
+
+	<select id="classDropdown" onchange="updateLeaderboard()">
+		<option value="">All Classes</option>
+		<option value="1L1">Class 1L1</option>
+		<option value="1L2">Class 1L2</option>
+		<option value="1L3">Class 1L3</option>
+		<option value="1N1">Class 1N1</option>
+		<option value="1N2">Class 1N2</option>
+		<option value="1N3">Class 1N3</option>
+		<option value="1F1">Class 1F1</option>
+		<option value="1F2">Class 1F2</option>
+		<option value="1F3">Class 1F3</option>
+	</select>
+
 	<table id="leaderboard" style="visibility: hidden;">
 		<thead>
 			<tr>
@@ -25,12 +39,8 @@
 		</thead>
 		<tbody id="leaderboardBody"></tbody>
 	</table>
+	<a class="home-button" href="../">Back to Home</a>
 
-
-	<div class="home-button-container">
-		<a class="home-button" href="../index.html">Back to Home</a>
-	</div>
-	
 </body>
 
 </html>
