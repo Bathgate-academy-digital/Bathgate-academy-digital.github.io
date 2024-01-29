@@ -26,29 +26,5 @@ async function showLeaderboard() {
     removeButtonCell.appendChild(removeButton);
   });
 }
-  
-  async function submitUser() {
-    const name = document.getElementById('name').value;
-    const schoolClass = document.getElementById('class').value;
-    const response = await createUser(name, schoolClass, "https://jungle-rush-kk7piym5qq-nw.a.run.app/api/leaderboard");
-    document.getElementById('idOutput').innerHTML = JSON.stringify(response);
-  }
 
-  async function deleteUser(name, schoolClass) {
-    const requestBody = `name=${name}&class=${schoolClass}`;
-    const requestHeaders = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded'
-    };
-    const options = {
-      method: "POST",
-      headers: requestHeaders,
-      body: requestBody
-    };
-  
-    const response = await fetch(`http://localhost:8080/api/delete`, options);
-    return response.json();
-  }
-  
-  window.onload = showLeaderboard;
-  
+window.onload = showLeaderboard;
