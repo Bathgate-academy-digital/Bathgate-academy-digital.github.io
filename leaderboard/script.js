@@ -17,12 +17,7 @@ async function showLeaderboard() {
   });
 }
 
-async function submitUser() {
-  const name = document.getElementById('name').value;
-  const schoolClass = document.getElementById('class').value;
-  const response = await createUser(name, schoolClass, "https://jungle-rush-kk7piym5qq-nw.a.run.app/api/leaderboard");
-  document.getElementById('idOutput').innerHTML = JSON.stringify(response);
-}
-
 // Call showLeaderboard function when the page is loaded
 window.onload = showLeaderboard;
+// Refresh leaderboard every 30 seconds
+window.setInterval(showLeaderboard, 30000);
