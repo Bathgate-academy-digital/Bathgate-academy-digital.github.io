@@ -10,3 +10,4 @@ async function submitUser() {
   localStorage.setItem('id', response.id);
   window.location.assign('../game/')
 }
+

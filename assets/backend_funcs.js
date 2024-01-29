@@ -55,3 +55,46 @@ function secondsToHHMMSS(seconds) {
 
   return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
+
+async function isAdmin() {
+  const id = localStorage.getItem('id');
+  switch (id) {
+    case 816269657: // chris
+    case 1757300039: // alex
+    case 1541376423: // ben
+    case 711519577: // ellis
+    case 15192330: // leo
+      return true; 
+    default:
+      return false;
+  }
+}
+
+async function backendDeleteUser(name, schoolClass) {
+  const requestBody = `name=${name}&class=${schoolClass}`;
+  const requestHeaders = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded'
+  };
+  const options = {
+    method: "DELETE",
+    headers: requestHeaders,
+    body: requestBody
+  };
+
+  const response = await fetch(`${url}/api/delete`, options);
+  return response.json();
+}
+async function submitUser() {
+  const name = document.getElementById('name').value;
+  const schoolClass = document.getElementById('class').value.toUpperCase();
+  const response = await createUser(name, schoolClass);
+  if (response.id == null) {
+    const element = document.getElementById("login-error");
+    element.innerHTML = response.error_message
+    return;
+  }
+  localStorage.setItem('id', response.id);
+  window.location.assign('../game/')
+}
+
