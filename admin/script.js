@@ -26,7 +26,7 @@ async function showLeaderboard(selectedClass) {
       let removeButton = document.createElement("button");
       removeButton.innerHTML = "Remove";
       removeButton.className = "remove-button"; // Apply the remove button style
-      removeButton.onclick = function () {
+      removeButton.onclick = function() {
         console.log("Remove button clicked for", item.id);
       };
       removeButtonCell.appendChild(removeButton);
@@ -48,4 +48,4 @@ window.onload = function() {
 window.setInterval(function() {
   const selectedClass = classDropdown.value;
   showLeaderboard(selectedClass);
-});
+}, 30000);
