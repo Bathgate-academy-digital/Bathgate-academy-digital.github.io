@@ -180,6 +180,7 @@ function movePlayer() {
       return;
     }
     if (i > recordedSequence.length) {
+      isMoving = false;
       showFailed();
       return;
     }
@@ -242,11 +243,16 @@ function resetLevel() {
 }
 
 async function gameComplete() {
-  const time = getTime();
-  const id = localStorage.getItem('id');
-  const responseFuture = updateTime(id, time);
   showGameEnd();
-  const response = await responseFuture;
+
+  const time = getTime();
+  const bestTime = localStorage.getItem('bestTime');
+  if (bestTime != null && bestTime < time) {
+    return;
+  }
+  localStorage.setItem('bestTime', time);
+  const id = localStorage.getItem('id');
+  const response = await updateTime(id, time);
   if (response.success !== true) {
     alert('Error uploading results')
   }
