@@ -1,5 +1,5 @@
-async function showLeaderboard(selectedClass) {
-  const items = await getAdminLeaderboard(selectedClass);
+async function showLeaderboard(selectedClass, password) {
+  const items = await getAdminLeaderboard(selectedClass, password);
 
   const leaderboardElement = document.getElementById("leaderboard");
   leaderboardElement.style.visibility = 'visible';
@@ -34,18 +34,26 @@ async function showLeaderboard(selectedClass) {
   }
 }
 
-const classDropdown = document.getElementById('classDropdown');
-classDropdown.addEventListener('change', function() {
+function updateLeaderboard(password) {
   const selectedClass = classDropdown.value;
-  showLeaderboard(selectedClass);
-});
+  showLeaderboard(selectedClass, password);
+}
 
-window.onload = function() {
-  const selectedClass = classDropdown.value;
-  showLeaderboard(selectedClass);
-};
+function login() {
+  const password = document.getElementById('password').value;
 
-window.setInterval(function() {
-  const selectedClass = classDropdown.value;
-  showLeaderboard(selectedClass);
-}, 30000);
+  updateLeaderboard(password)
+  const classDropdown = document.getElementById('classDropdown');
+  classDropdown.addEventListener('change', () => updateLeaderboard(password));
+  window.setInterval(() => updateLeaderboard(password), 30000);
+  hideModal();
+}
+
+function hideModal() {
+  const modal = document.getElementById('modal');
+  const modalContent = document.getElementById('modal-content');
+  modal.classList.remove("darkened-modal");
+  modal.classList.add("closed");
+  modalContent.classList.add("closed")
+}
+

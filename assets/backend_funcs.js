@@ -11,9 +11,17 @@ async function getLeaderboard(classFilter) {
   }
 }
 
-async function getAdminLeaderboard(classFilter) {
+async function getAdminLeaderboard(classFilter, password) {
   try {
-    const response = await fetch(`${url}/api/admin/leaderboard${classFilter ? `?class=${classFilter}` : ''}`);
+    const fetchUrl = `${url}/api/admin/leaderboard${classFilter ? `?class=${classFilter}` : ''}`;
+    const response = await fetch(fetchUrl, {
+      method: 'GET',
+      withCredentials: true,
+      credentials: 'include',
+      headers: {
+        'Authorization': await passwordToAuthHeader(password)
+      }
+    });
     return response.json();
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
@@ -21,6 +29,23 @@ async function getAdminLeaderboard(classFilter) {
     throw error;
   }
 }
+
+async function passwordToAuthHeader(password) {
+  const hash = await getSHA256Hash(password);
+  let authString = `admin:${hash}`
+  let auth = btoa(authString)
+  return `Basic ${auth}`
+}
+
+async function getSHA256Hash(input) {
+  const textAsBuffer = new TextEncoder().encode(input);
+  const hashBuffer = await window.crypto.subtle.digest("SHA-256", textAsBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hash = hashArray
+    .map((item) => item.toString(16).padStart(2, "0"))
+    .join("");
+  return hash;
+};
 
 async function createUser(name, showClass) {
   const requestBody = `name=${name}&class=${showClass}`;

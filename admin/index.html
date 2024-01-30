@@ -4,6 +4,7 @@
 <head>
 	<title>Leaderboard</title>
 	<link id="default" href="../assets/variables.css" rel="stylesheet" type="text/css" />
+	<link id="default" href="../assets/modal.css" rel="stylesheet" type="text/css" />
 	<link id="default" href="../assets/style.css" rel="stylesheet" type="text/css" />
 	<link id="default" href="./leaderboard.css" rel="stylesheet" type="text/css" />
 	<meta charset="UTF-8" />
@@ -15,6 +16,13 @@
 
 <body>
 	<h1>Admin</h1>
+	<section id="modal" class="darkened-modal">
+		<div id="modal-content" class="large">
+			<h1 id="modal-text-header">Admin credentials:</h1>
+			<input type="text" name="password" placeholder="Password" id="password"></input>
+			<button id="modal-next-button" onmousedown="login()">Submit</button>
+		</div>
+	</section>
 
 	<select id="classDropdown">
 		<option value="">All Classes</option>

@@ -7,4 +7,8 @@
 	--accent-color: rgba(63, 141, 55, 0.9);
 	--panel-bg-color: rgba(63, 141, 55, 0.9);
 	--footer-bg-color: var(--accent-color);
+	--modal-card-bg-color: var(--accent-color);
+	--bold: 600;
+	--medium: 400;
+	--light: 300;
 }

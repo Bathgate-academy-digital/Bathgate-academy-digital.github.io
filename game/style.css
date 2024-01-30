@@ -1,9 +1,4 @@
 html {
-  --main-font-color: white;
-  --modal-card-bg-color: var(--accent-color);
-  --bold: 600;
-  --medium: 400;
-  --light: 300;
   margin: 0;
   padding: 0%;
 }
@@ -35,19 +30,6 @@ header * {
   margin: 0;
 }
 
-button {
-  padding: 0.7rem;
-  border-radius: 0.4em;
-  border: none;
-  color: var(--main-font-color);
-  background-color: #0c151c;
-}
-
-button:hover {
-  background-color: #2980b9;
-  cursor: pointer;
-}
-
 #moves-preview {
   height: 5em;
   width: 100%;
@@ -61,81 +43,6 @@ button:hover {
 
 #moves-preview img {
   height: 3em;
-}
-
-#modal {
-  display: grid;
-  place-content: center;
-  position: fixed;
-  z-index: 99;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: #0000;
-  backdrop-filter: blur(0px) saturate(100%);
-  color: white;
-  transition: background-color 0.4s ease-in, backdrop-filter 0.3s, height 0s linear 0s;
-}
-
-#modal.darkened-modal {
-  transition: background-color 0.3s ease-out, backdrop-filter 0.3s, height 0s linear 0s;
-  backdrop-filter: blur(10px) saturate(60%);
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-#modal.closed {
-  height: 0;
-  transition: background-color 0.3s ease-in, backdrop-filter 0.3s, height 0s linear 0.3s;
-}
-
-#modal-content {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  padding: 2%;
-  background-color: var(--modal-card-bg-color);
-  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
-  width: 60%;
-  height: fit-content;
-  filter: opacity(100%);
-  translate: 0 0;
-  transition: filter 0.2s ease-in, translate 0.2s;
-}
-
-#modal-content.large {
-  width: 80%;
-}
-
-#modal-content.closed {
-  filter: opacity(0);
-  translate: 0 20vh;
-  transition: filter 0.2s ease-out, translate 0.2s;
-}
-
-#modal-next-button {
-  margin: 0 2%;
-  background-color: var(--accent-color);
-  font-size: 2rem;
-  font-weight: var(--bold);
-  cursor: pointer;
-  transition: all 0.2s ease-out;
-}
-
-#modal-next-button:hover {
-  color: #fff
-}
-
-#modal-text-header {
-  font-weight: var(--bold);
-  color: hsl(from var(--main-font-color) h s calc(l - 20%));
-  margin: 5% 0;
-}
-
-#modal-description {
-  font-weight: var(--light);
-  font-size: 1.5rem;
 }
 
 #canvas {
