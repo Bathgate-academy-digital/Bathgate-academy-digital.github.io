@@ -11,6 +11,17 @@ async function getLeaderboard(classFilter) {
   }
 }
 
+async function getAdminLeaderboard(classFilter) {
+  try {
+    const response = await fetch(`${url}/api/admin/leaderboard${classFilter ? `?class=${classFilter}` : ''}`);
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching leaderboard:", error);
+    console.error("Response text:", await response.text());
+    throw error;
+  }
+}
+
 async function createUser(name, showClass) {
   const requestBody = `name=${name}&class=${showClass}`;
   const requestHeaders = {

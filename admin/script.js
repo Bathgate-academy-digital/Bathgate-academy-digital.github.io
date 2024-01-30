@@ -1,5 +1,5 @@
 async function showLeaderboard(selectedClass) {
-  const items = await getLeaderboard(selectedClass);
+  const items = await getAdminLeaderboard(selectedClass);
 
   const leaderboardElement = document.getElementById("leaderboard");
   leaderboardElement.style.visibility = 'visible';
