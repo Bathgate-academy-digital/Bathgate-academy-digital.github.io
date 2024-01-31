@@ -8,6 +8,6 @@ async function submitUser() {
     return;
   }
   localStorage.setItem('id', response.id);
-  window.location.assign('../game/')
+  window.location.replace('../game/')
 }
 
