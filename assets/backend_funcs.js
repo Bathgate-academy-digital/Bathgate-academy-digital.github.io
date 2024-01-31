@@ -105,14 +105,17 @@ async function submitUser() {
   window.location.assign('../game/')
 }
 
-async function deleteUser(name, schoolClass) {
-  const requestBody = `name=${name}&class=${schoolClass}`;
+async function deleteUser(id, password) {
+  const requestBody = `id=${id}`;
   const requestHeaders = {
     'Accept': 'application/json',
-    'Content-Type': 'application/x-www-form-urlencoded'
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': await passwordToAuthHeader(password)
   };
   const options = {
     method: "POST",
+    withCredentials: true,
+    credentials: 'include',
     headers: requestHeaders,
     body: requestBody
   };

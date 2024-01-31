@@ -27,7 +27,7 @@ async function showLeaderboard(selectedClass, password) {
       removeButton.innerHTML = "Remove";
       removeButton.className = "remove-button"; // Apply the remove button style
       removeButton.onclick = function() {
-        console.log("Remove button clicked for", item.id);
+        deleteUser(item.id, password)
       };
       removeButtonCell.appendChild(removeButton);
     });
