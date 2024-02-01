@@ -38,6 +38,21 @@ small {
 	color: var(--main-font-color);
 }
 
+select {
+	display: block;
+	margin: 2vh auto;
+	padding: 10px;
+	font-family: 'Tillana', sans-serif;
+	color: #fff;
+	text-shadow: 2px 2px 4px #00000050;
+	border-radius: 8px;
+	color: var(--main-font-color);
+	background-color: #0c151c;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+}
+
 .title-section {
 	height: 100%;
 	width: 100%;
@@ -124,27 +139,27 @@ footer {
 }
 
 #login-panel {
-    margin: auto;
-    border-radius: 8px;
-    background: var(--panel-bg-color);
-    font-family: Tillana;
+	margin: auto;
+	border-radius: 8px;
+	background: var(--panel-bg-color);
+	font-family: Tillana;
 	text-align: center;
 }
 
 /* default styles for desktop */
 #login-panel {
-    width: 30%;
+	width: 30%;
 }
 
 /* media query for mobile devices */
 @media only screen and (max-width: 768px) {
-    #login-panel {
-        width: 80%;
-    }
+	#login-panel {
+		width: 80%;
+	}
 }
 
 #login-form * {
-	margin: 8px;
+	margin: 8px auto;
 }
 
 #login-form input {
@@ -169,7 +184,7 @@ input[type=text] {
 }
 
 #login-form input[type=text] {
-    width: 60% !important;
+	width: 60% !important;
 }
 
 input[type=text]:focus {
@@ -183,24 +198,24 @@ input[type=text]::placeholder {
 }
 
 .example-text-container {
-    background-color: var(--accent-color);
-    padding: 20px;
-    border-radius: 8px; 
-    margin: 20px 0;
-    width: 80%;
-    margin: auto;
-    color: #fff;
-    font-family: Tillana;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+	background-color: var(--accent-color);
+	padding: 20px;
+	border-radius: 8px;
+	margin: 20px 0;
+	width: 80%;
+	margin: auto;
+	color: #fff;
+	font-family: Tillana;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    transition: 0.3s;
-    
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	transition: 0.3s;
+
 }
 
 .example-text-container p {
-    color: white;
+	color: white;
 }

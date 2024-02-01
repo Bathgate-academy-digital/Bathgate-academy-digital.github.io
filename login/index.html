@@ -22,8 +22,20 @@
 				<input type="text" id="name" name="name" placeholder="Full name">
 				<br>
 				<label for="class">Class:</label><br>
-				<small>Must be full class (e.g. 1N3 and not 1K)</small>
-				<input type="text" id="class" name="class" placeholder="Class"><br>
+				<select id="class">
+					<option value="">Select class</option>
+					<option value="1L1">Class 1L1</option>
+					<option value="1L2">Class 1L2</option>
+					<option value="1L3">Class 1L3</option>
+					<option value="1N1">Class 1N1</option>
+					<option value="1N2">Class 1N2</option>
+					<option value="1N3">Class 1N3</option>
+					<option value="1F1">Class 1F1</option>
+					<option value="1F2">Class 1F2</option>
+					<option value="1F3">Class 1F3</option>
+					<option value="Teacher">Teacher</option>
+					<option value="Guest">Guest</option>
+				</select>
 				<p id="login-error" class="error"></p><br>
 				<small>Staff can find who puts fake names in!</small>
 			</form>

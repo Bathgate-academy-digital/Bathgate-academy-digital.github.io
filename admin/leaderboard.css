@@ -44,20 +44,6 @@ body > h1 {
     text-align: center;
 }
 
-#classDropdown {
-    display: block;
-    margin: 2vh auto;
-    padding: 10px;
-    font-family: 'Tillana', sans-serif;
-    color: #fff;
-    text-shadow: 2px 2px 4px #00000050;
-    border-radius: 8px;
-    background-color: var(--accent-color);
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
 .home-button {
     background-color: var(--accent-color);
     border: none;
